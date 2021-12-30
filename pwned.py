@@ -9,7 +9,7 @@
 # Notes: when checking the password online, the pwd itself is NOT sent to anybody... checks are done against HASHED passwords 
 #        in a way to anonymize the pwd itself.
 # Feel free to send me any bug/improvement request. I will try to respond to anyone.
-# Added -z switch (only support single password so far...)
+# 30/12/2021 - Ver 1.3b: Added -z switch (only support single password so far...)
 
 import hashlib
 import requests
@@ -20,7 +20,7 @@ import time
 import threading
 import zipfile
 
-PROGRAM_VERSION="1.3"
+PROGRAM_VERSION="1.3b"
 DEBUG_MODE = False
 SSL_CHECK  = False
 
@@ -232,6 +232,8 @@ def showHelp():
     pressAnyKey()
     print("-----------------------------------------------------------------------------------------------------------------------")
     print("Sample usage:")
+    print("pwned -p password123 -l hashtest.txt")
+    print("pwned -p password123 -l hashtest.txt -z hashtest.zip")
     print("pwned -p password123 -o thisiswhativefound.txt")
     print("pwned -p B0399D2029F64D445BD131FFAA399A42D2F8E7DC -s -o thisiswhativefound.txt")
     print("pwned -f file_with_passwords.txt -o thisiswhativefound.txt")
